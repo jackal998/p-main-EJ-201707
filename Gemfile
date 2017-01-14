@@ -29,8 +29,14 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# Use Kaminari for easy pagination. 'j'
+gem 'kaminari'
+# Use Faker in ganerating fake informations. 'j'
+gem 'faker'
+# Use devise as an user recognize plugin. 'j'
+gem 'devise'
+
+gem "rails-i18n"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
