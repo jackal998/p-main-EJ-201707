@@ -1,0 +1,48 @@
+zh_TW:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "%{errors}"
+      models:
+        event:
+          attributes:
+            start_at:
+              blank: "開始時間定義錯誤"
+            end_at:
+              blank: "結束時間定義錯誤"
+        user:
+          attributes:
+            email:
+              invalid: "無法辨識"
+              blank: "信箱不可以為空"
+              taken: "已經註冊過了！"
+            password:
+              too_short: "密碼過短"
+              blank: "密碼不可以為空"
+            password_confirmation:
+              confirmation: "密碼不符"
+  day_after: "後天"
+  devise:
+    failure:
+      already_authenticated: "已經登入"
+      user:
+        invalid: "不合法的 %{authentication_keys} 或是密碼"
+        not_found_in_database: "不合法的金鑰 %{authentication_keys} 或是密碼"
+        timeout: "登入逾時，請重新登入"
+        unauthenticated: "請先註冊，或是登入"
+    sessions:
+      user:
+        signed_in: "登入成功"
+        signed_out: "登出成功"
+        already_signed_out: "登出成功"
+    registrations:
+      user:
+        signed_up: "註冊成功"
+    omniauth_callbacks:
+      user:
+        success: "登入成功"
+  errors: 
+    messages:
+      not_saved: "註冊失敗"
+  today: "今天"
+  tomorrow: "明天"
