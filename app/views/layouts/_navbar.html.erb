@@ -2,28 +2,31 @@
   <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header page-scroll">
-      <button type="button" class="navbar-toggle glyphicon glyphicon-th-list" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span> 
         <i class="fa fa-bars"></i>
       </button>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <h2 style="display: inline;">安安</h2>
       <ul class="nav navbar-nav navbar-right">
         <li class="hidden">
           <a href="#page-top"></a>
         </li>
         <li>
-          <a class="page-scroll" href="#services">Services</a>
+          <a class="page-scroll" href="#services">工具們</a>
         </li>
         <li>
-          <a class="page-scroll" href="#about">About</a>
+          <a class="page-scroll" href="#about">關於網站</a>
         </li>
         <li>
-          <a class="page-scroll" href="#team">Team</a>
+          <a class="page-scroll" href="#team">關於開發</a>
         </li>
         <li>
-          <a data-toggle="modal" data-target="#myModal" style="border: 0px;">User</a>
+          <a href="#" data-toggle="modal" data-target="#myModal" style="border: 0px;">
+            <%= user_name(current_user) %>
+          </a>
         </li>
         <li>
           <%= link_to '登出', destroy_user_session_path, method: 'DELETE'  %>
