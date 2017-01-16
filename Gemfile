@@ -18,8 +18,11 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem "font-awesome-rails"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-easing-rails'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -35,7 +38,6 @@ gem 'kaminari'
 gem 'faker'
 # Use devise as an user recognize plugin. 'j'
 gem 'devise'
-
 gem 'devise-i18n'
 gem "rails-i18n"
 
