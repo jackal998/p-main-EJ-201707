@@ -12,7 +12,7 @@ class User < ApplicationRecord
   def employee
     account = email.split("@").first
     unless employee_list.include?(account)
-      errors[:base] << "請詢問管理員！"
+      errors[:name] << "如果有其他疑問，請聯絡管理員。"
     end
   end
 
