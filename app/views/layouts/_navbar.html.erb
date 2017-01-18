@@ -6,10 +6,12 @@
         <span class="sr-only">Toggle navigation</span> 
         <i class="fa fa-bars"></i>
       </button>
+      <h3 style="margin-top: 12px;margin-bottom: 12px;">
+        鮮乳坊線上小工具
+      </h3>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <h2 style="display: inline;">安安</h2>
       <ul class="nav navbar-nav navbar-right">
         <li class="hidden">
           <a href="#page-top"></a>
@@ -33,10 +35,9 @@
         </li>
       </ul>
     </div>
-      <!-- /.navbar-collapse -->
   </div>
-<!-- Button trigger modal -->
 </div>
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -48,8 +49,12 @@
         <h4 class="modal-title" id="myModalLabel">個人資料</h4>
       </div>
       <div class="modal-body">
-        <%= current_user.email.split("@").first %>
-        <br />
+        <h4><%= user_name(current_user) %></h4>
+        <p> <%= "取個響亮的暱稱吧！" unless current_user.nickname.present? %> </p>
+        <p> 信箱: <%= current_user.email %> </p>
+        <p> 登入次數: <%= current_user.sign_in_count %> </p>
+        <p> 登入時間: <%= current_user.current_sign_in_at %> </p>
+        <p> 上次登入: <%= current_user.last_sign_in_at %> </p>
         <%= link_to '修改個人資料', edit_user_registration_path  %>
       </div>
       <div class="modal-footer">
