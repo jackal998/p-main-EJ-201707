@@ -17,16 +17,16 @@
           <i class="fa fa-circle fa-stack-2x text-primary"></i>
           <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
         </span>
-        <h4 class="service-heading">工具一</h4>
-        <p class="text-muted">工具一的介紹</p>
+        <h4 class="service-heading">牧場系統</h4>
+        <p class="text-muted">只是個名字，其實是假的</p>
       </div>
       <div class="col-md-4">
         <span class="fa-stack fa-4x">
           <i class="fa fa-circle fa-stack-2x text-primary"></i>
           <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
         </span>
-        <h4 class="service-heading">工具二</h4>
-        <p class="text-muted">工具二的介紹</p>
+        <h4 class="service-heading">財產清冊</h4>
+        <p class="text-muted">正在施工中（吧？）</p>
       </div>
       <div class="col-md-4">
         <span class="fa-stack fa-4x">
@@ -46,17 +46,21 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading">關於網站</h2>
-        <h3 class="section-subheading text-muted">
-          我是ej大家毫～
+        <h3 class="section-subheading text-muted text-left">
+          一頭乳牛每年可以產至1.8萬升奶（極少數以上），隨地區和種類的不同牛的產奶量不同。產量越高的牛也越難飼養。
+          一頭每天產50升的牛的新陳代謝能量與一個馬拉松長跑運動員運動時一樣高。假如它不能獲得適量的飼料的話會生病，其生產時間也會降低。
+          除奶量外奶的脂肪和蛋白質含量也非常重要，是決定奶的價格的重要因素。對於兩用牛（比如西門塔爾牛）來說，產奶能力和肉用能力都非常重要。
+          所謂的「高產量乳牛」的產奶期在四至五年之間。最主要的縮短產奶期的原因有不當的飼養環境以及由不優質的擠奶機造成的乳房的慢性發炎。
+          高產量乳牛的產子率也比較低，過一段時間後它們完全喪失產子能力。
         </h3>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-12">
-        <ul class="timeline">
+        <ul class="timeline" style="list-style: none;padding-left: 0px;">
           <li>
             <div class="timeline-image">
-              <img src="http://lorempixel.com/400/200/sports/1" class="img-responsive" alt="">
+              <%= image_tag('/placeholder1.jpg', class: "img-responsive") %>
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
@@ -70,7 +74,7 @@
           </li>
           <li class="timeline-inverted">
             <div class="timeline-image">
-              <img src="http://lorempixel.com/400/200/sports/2" class="img-responsive" alt="">
+              <%= image_tag('/placeholder2.jpg', class: "img-responsive") %>
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
@@ -109,7 +113,7 @@
     <div class="row">
       <div class="col-sm-4">
         <div class="team-member">
-          <img src="http://lorempixel.com/400/200/sports/5" class="img-responsive" alt="">
+          <%= image_tag('/placeholder4.jpg', class: "img-responsive") %>
           <h4>這個很厲害</h4>
           <p class="text-muted">資料量很大</p>
           <ul class="list-inline social-buttons">
@@ -133,7 +137,7 @@
       </div>
       <div class="col-sm-4">
         <div class="team-member">
-          <img src="http://lorempixel.com/400/200/sports/6" class="img-responsive" alt="">
+          <%= image_tag('/placeholder5.png', class: "img-responsive") %>
           <h4>這個也很厲害</h4>
           <p class="text-muted">主要的邏輯在這裡</p>
           <ul class="list-inline social-buttons">
@@ -157,7 +161,7 @@
       </div>
       <div class="col-sm-4">
         <div class="team-member">
-          <img src="http://lorempixel.com/400/200/sports/7" class="img-responsive" alt="">
+          <%= image_tag('/placeholder3.jpg', class: "img-responsive") %>
           <h4>其實都是在騙</h4>
           <p class="text-muted">我只是在喇賽</p>
           <ul class="list-inline social-buttons">
@@ -183,7 +187,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 text-center">
         <p class="large text-muted">
-          Copyright © 2015 MILK HOUSE All Rights Reserved. 慕渴股份有限公司 版權所有
+          Copyright © <%= Date.today.year %> MILK HOUSE All Rights Reserved. 慕渴股份有限公司 版權所有
         </p>
       </div>
     </div>
