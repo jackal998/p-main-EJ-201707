@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def system_performance_test(times,magnification)
+  def system_performance_test(times, magnification)
     spt = []
     times.times {spt.push(duration_test)}
     ((spt.inject{ |sum, el| sum + el }.to_f / spt.size) * magnification).round(0)

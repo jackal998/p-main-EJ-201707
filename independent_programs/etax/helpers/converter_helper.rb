@@ -2,15 +2,13 @@ module ConverterHelper
   def get_open_file_call_back(file_path, parent)
     file_type = File.extname(file_path)
     if file_type == ".xlsx" || file_type == ".xlsm"
-
-      msgBox = show_msg('time_predict', system_performance_test(10,44530))
+      msgBox = show_msg('time_predict', system_performance_test(15,72000))
       file_name = File.basename(file_path, file_type)
   
       target_content = RubyXL::Parser.parse(file_path)
 
       shops = set_information(target_content)
       write_csv_file(shops, file_name, file_path)
-
       show_msg('content', '轉換完成！')
     else
       show_msg('filetype_incorrect', file_type)

@@ -22,7 +22,3 @@ def main_window
 end
 
 main_window
-
-byebug
-byebug
-byebug
