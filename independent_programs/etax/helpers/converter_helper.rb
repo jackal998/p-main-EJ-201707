@@ -54,11 +54,23 @@ module ConverterHelper
     table_columns = get_table_columns(target_content)
 
     shops = {}
+    log = []
     target_content['銷貨紀錄'].each { |row| 
       next if row.r == 1
       shop_name = row[table_columns[:抬頭]].value if row
       next if shop_name == '#N/A'
       
+      exist = shops.include?(shop_name)
+      data = check_shop_value(row, table_columns, exist)
+      next if data[:s_info].empty? && exist == false
+
+      unless data[:incorrect].nil?
+        errors = [row.r]
+        data.each do |k,v|
+          errors.push(k)
+          errors.push(v)
+        end
+        log.push(errors)
       end
 
       unless exist
@@ -69,6 +81,7 @@ module ConverterHelper
       shops[shop_name][:s_info][:銷售額合計] += data[:b_info][:免稅總價]
       shops[shop_name][:b_info].push(data[:b_info])
     }
+    set_log(log)
     return shops
   end
 
@@ -83,22 +96,30 @@ module ConverterHelper
       create_date                 # 執行開立日期
     ]
 
-    CSV.open(File.dirname(file_path) + "/" + file_name + ".csv", "wb") do |csv|
+    CSV.open("315509494_" + create_date + ".csv", "wb") do |csv|
+      csv << our_info
 
       shops.each do |shop|
-        custom_id = create_date.to_s + "-" + shop[1][:s_info][:統一編號].to_s
 
-        csv << our_info
-        csv << spgateway_format(shop[1][:s_info], 'shop_info', nil, custom_id)
+        custom_id = create_date.to_s + "_" + shop[1][:s_info][:買受人統一發票].to_s
 
-        b_index = 1
+        csv << spgateway_format(shop[1][:s_info], 'shop_info', custom_id)
         shop[1][:b_info].each do |b_info|
-          next if b_info[:單價].class != Fixnum
-          csv << spgateway_format(b_info, 'buy_info', b_index, custom_id)
-          b_index += 1
+          csv << spgateway_format(b_info, 'buy_info', custom_id)
         end
 
       end
     end
   end
+
+  def set_log(log)
+    CSV.open("315509494_" + Date.today.strftime("%Y%m%d") + "_error_log.csv", "wb") do |csv|
+      li = 0
+      log.each do |l| 
+        csv << l.unshift(li)
+        li += 1
+      end
+    end
+  end
+
 end
