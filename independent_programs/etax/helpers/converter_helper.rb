@@ -27,16 +27,23 @@ module ConverterHelper
     table_columns = {}
     table_title.cells.each { |cell|
       val = cell && cell.value
-      table_columns[:店家名稱] = cell.column if val == '店家名稱'
-      table_columns[:統一編號] = cell.column if val == '統一編號'
+
       table_columns[:抬頭] = cell.column if val == '抬頭'
+      table_columns[:統一編號] = cell.column if val == '統一編號'
       table_columns[:會計mail] = cell.column if val == '會計mail'
+      table_columns[:採購mail] = cell.column if val == '採購mail'
+      table_columns[:窗口Email] = cell.column if val == '窗口Email'
+      table_columns[:負責人mail] = cell.column if val == '負責人mail'
+      table_columns[:帳單地址] = cell.column if val == '帳單地址'
+      table_columns[:收件地址] = cell.column if val == '收件完整地址'
       table_columns[:公司地址] = cell.column if val == '公司地址'
       table_columns[:品名] = cell.column if val == '品名'
       table_columns[:數量] = cell.column if val == '數量'
       table_columns[:單位] = cell.column if val == '單位'
       table_columns[:單價] = cell.column if val == '單價'
       table_columns[:免稅總價] = cell.column if val == '免稅總價'
+      table_columns[:稅率] = cell.column if val == '稅率'
+      table_columns[:稅額] = cell.column if val == '稅額'
       table_columns[:含稅總價] = cell.column if val == '含稅總價'
     }
 
@@ -49,35 +56,18 @@ module ConverterHelper
     shops = {}
     target_content['銷貨紀錄'].each { |row| 
       next if row.r == 1
-      shop_name = row[table_columns[:店家名稱]].value if row
+      shop_name = row[table_columns[:抬頭]].value if row
       next if shop_name == '#N/A'
-      unless shops.include?(shop_name)
-
-        check_shop_value(row, table_columns)
-
-        shops[shop_name] = {
-          s_info: {
-            店家名稱: row[table_columns[:店家名稱]].value,
-            統一編號: row[table_columns[:統一編號]].value,
-            抬頭: row[table_columns[:抬頭]].value,
-            會計mail: row[table_columns[:會計mail]].value,
-            公司地址: row[table_columns[:公司地址]].value,
-            銷售額合計: 0
-          }
-        }
-        shops[shop_name][:b_info] = []
+      
       end
 
-      b_info = {
-        品名: row[table_columns[:品名]].value,
-        數量: row[table_columns[:數量]].value,
-        單位: row[table_columns[:單位]].value,
-        單價: row[table_columns[:單價]].value,
-        免稅總價: row[table_columns[:免稅總價]].value,
-        含稅總價: row[table_columns[:含稅總價]].value
-      }
-      shops[shop_name][:s_info][:銷售額合計] += row[table_columns[:免稅總價]].value if row[table_columns[:免稅總價]].value.class == Fixnum
-      shops[shop_name][:b_info].push(b_info)
+      unless exist
+        shops[shop_name] = {}
+        shops[shop_name][:s_info] = data[:s_info]
+        shops[shop_name][:b_info] = []
+      end
+      shops[shop_name][:s_info][:銷售額合計] += data[:b_info][:免稅總價]
+      shops[shop_name][:b_info].push(data[:b_info])
     }
     return shops
   end
