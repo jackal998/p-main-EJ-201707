@@ -13,39 +13,58 @@ module ApplicationHelper
     time = fh - st
   end
 
-  def spgateway_format(data, type, custom_id)
-    case type
+  def spgateway_format(s_info, b_info, t_type, custom_id)
+    
+    buy_info = []
+    sum = 0
+    t_table = {應稅: 1, 其它: 2, 免稅: 3}
+    custom_id += "_" + t_table[t_type].to_s
 
-    when 'shop_info'
-      shop_info = [
-        "S",                              # 明細錄別
-        custom_id,                        # 商店自訂編號
-        data[:發票種類],                    # 發票種類
-        data[:買受人統一發票],               # 買受人統一發票
-        data[:買受人名稱],                  # 買受人名稱
-        data[:買受人電子信箱],               # 買受人電子信箱
-        data[:買受人地址],                  # 買受人地址 (非必填)
-        nil ,                             # 載具類別
-        nil ,                             # 載具編號
-        nil ,                             # 愛心碼
-        "Y",                              # 索取紙本發票
-        data[:稅別],                       # 稅別
-        data[:稅率],                       # 稅率
-        data[:銷售額合計],                  # 銷售額合計
-        data[:稅額],                       # 稅額
-        data[:發票金額]                     # 發票金額
-      ]
-    when 'buy_info'
-      buy_info = [
-        "I",                              # 明細錄別
-        custom_id,                        # 商店自訂編號
-        data[:品名],                       # 商品名稱
-        data[:數量],                       # 商品數量
-        data[:單位],                       # 商品單位
-        data[:單價],                       # 商品單價
-        data[:免稅總價]                     # 商品小計
-      ]
+    b_info.each do |p_name, total|
+      total_to_i = total.to_i
+      buy_info.push([
+          "I",                                      # 明細錄別
+          custom_id,                                # 商店自訂編號
+          p_name.to_s,                              # 商品名稱
+          1,                                        # 商品數量
+          '件',                                     # 商品單位
+          total_to_i,                               # 商品單價
+          total_to_i                                # 商品小計
+        ])
+      sum += total_to_i
     end
+
+    spgateway_format_type = case t_type
+    when :應稅
+      [t_table[t_type],5,(sum/1.05).round(0),(sum*0.05/1.05).round(0),sum]
+    when :其它
+      [t_table[t_type],0,0,0,0]
+    when :免稅
+      [t_table[t_type],0,sum,0,sum]
+    else
+      byebug
+    end
+
+    shop_info = [
+      "S",                                # 明細錄別
+      custom_id,                          # 商店自訂編號
+      s_info[:發票種類],                   # 發票種類
+      s_info[:買受人統一發票],              # 買受人統一發票
+      s_info[:買受人名稱],                 # 買受人名稱
+      s_info[:買受人電子信箱],              # 買受人電子信箱
+      s_info[:買受人地址],                 # 買受人地址 (非必填)
+      nil ,                               # 載具類別
+      nil ,                               # 載具編號
+      nil ,                               # 愛心碼
+      "Y",                                # 索取紙本發票
+      spgateway_format_type[0],           # 稅別
+      spgateway_format_type[1],           # 稅率
+      spgateway_format_type[2],           # 銷售額合計
+      spgateway_format_type[3],           # 稅額
+      spgateway_format_type[4]            # 發票金額
+    ]
+
+    return [shop_info, buy_info]
   end
 
   def check_shop_value(row, table_columns, exist)
@@ -77,21 +96,21 @@ module ApplicationHelper
 
       if b_type
         data[:s_info] = {
+          店家編號: row[table_columns[:店家編號]].value.to_s,
           發票種類: b_type,
           買受人名稱: row[table_columns[:抬頭]].value,
-          買受人統一發票: row[table_columns[:統一編號]].value.to_i,
+          買受人統一發票: row[table_columns[:統一編號]].value.to_s,
           買受人電子信箱: company_email,
           買受人地址: row[table_columns[:帳單地址]].value,
-          銷售額合計: 0
         }
       end
     end
 
-    [:品名, :數量, :單位].each do |column|
+    [:品名, :單位].each do |column|
       data[:b_info][column] = row[table_columns[column]].value
     end
 
-    [:單價, :免稅總價, :稅率, :稅額, :含稅總價].each do |column|
+    [:單價, :數量, :免稅總價, :稅率, :稅額, :含稅總價].each do |column|
       val = row[table_columns[column]].value
       incorrect[column] = 'type' unless val.class == Fixnum || val.class == Float
       data[:b_info][column] = val.to_f

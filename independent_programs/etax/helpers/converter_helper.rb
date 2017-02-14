@@ -28,6 +28,7 @@ module ConverterHelper
     table_title.cells.each { |cell|
       val = cell && cell.value
 
+      table_columns[:店家編號] = cell.column if val == '店家ID'
       table_columns[:抬頭] = cell.column if val == '抬頭'
       table_columns[:統一編號] = cell.column if val == '統一編號'
       table_columns[:會計mail] = cell.column if val == '會計mail'
@@ -76,10 +77,22 @@ module ConverterHelper
       unless exist
         shops[shop_name] = {}
         shops[shop_name][:s_info] = data[:s_info]
-        shops[shop_name][:b_info] = []
+        shops[shop_name][:b_info] = {免稅: {}, 應稅: {}, 其它: {}}
       end
-      shops[shop_name][:s_info][:銷售額合計] += data[:b_info][:免稅總價]
-      shops[shop_name][:b_info].push(data[:b_info])
+
+      tax_rate = data[:b_info][:稅率]
+      item = data[:b_info][:品名].to_sym
+
+      type = case tax_rate
+      when 0
+        [:免稅, data[:b_info][:含稅總價]]
+      when 0.05
+        [:應稅, (data[:b_info][:含稅總價] + data[:b_info][:稅額]).to_i]
+      else
+        byebug
+      end
+      p_value = shops[shop_name][:b_info][type[0]][item]
+      shops[shop_name][:b_info][type[0]][item] = p_value.nil? ? type[1] : p_value += type[1]
     }
     set_log(log)
     return shops
@@ -100,14 +113,17 @@ module ConverterHelper
       csv << our_info
 
       shops.each do |shop|
+        custom_id = create_date.to_s + "_" + ("%08d" % shop[1][:s_info][:店家編號])
 
-        custom_id = create_date.to_s + "_" + shop[1][:s_info][:買受人統一發票].to_s
+        shop[1][:b_info].each do |tax_type, b_info|
+          next if b_info.empty?
+          gui = spgateway_format(shop[1][:s_info], b_info, tax_type, custom_id)
 
-        csv << spgateway_format(shop[1][:s_info], 'shop_info', custom_id)
-        shop[1][:b_info].each do |b_info|
-          csv << spgateway_format(b_info, 'buy_info', custom_id)
+          csv << gui[0]  # GUI title
+          gui[1].each do |gui_info|
+            csv << gui_info
+          end
         end
-
       end
     end
   end
