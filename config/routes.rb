@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
 
+  get '/services/hereyouare', to: 'services#marketing'
+
   root :to => "services#index"
 end
