@@ -1,8 +1,8 @@
 `ssh-add`
-set :application, 'milkhouse'
+set :application, 'p-main-EJ-201707'
 
-set :repo_url, 'git@github.com:jackal998/milkhouses-properties_list.git'
-set :deploy_to, '/home/deploy/milkhouse'
+set :repo_url, 'git@github.com:jackal998/p-main-EJ-201707.git'
+set :deploy_to, '/home/deploy/p-main-EJ-201707'
 set :keep_releases, 5
 
 append :linked_files, 'config/database.yml', 'config/secrets.yml'
