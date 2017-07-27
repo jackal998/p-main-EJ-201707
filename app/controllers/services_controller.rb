@@ -23,6 +23,7 @@ class ServicesController < ApplicationController
       @user = User.new(
         :nickname => "guest", 
         :email => "guest_#{Time.now.to_i}#{rand(99)}@guest.tw",  # .tw 可以加入國籍辨別
+        :role => "guest",
         :cookie_show_me_who_your_are => new_cookie
       )
       @user.save(:validate => false)

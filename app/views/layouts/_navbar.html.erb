@@ -30,9 +30,11 @@
             <%= user_name(current_user) %>
           </a>
         </li>
-        <li>
-          <%= link_to '登出', destroy_user_session_path, method: 'DELETE'  %>
-        </li>
+        <% unless current_user.is_guest? %>
+          <li>
+            <%= link_to '登出', destroy_user_session_path, method: 'DELETE'  %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

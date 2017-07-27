@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   validate :employee
 
+  def is_guest?
+    self.role == 'guest'
+  end
+
   private
 
   def employee
