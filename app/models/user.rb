@@ -17,8 +17,6 @@ class User < ApplicationRecord
   end
 
   def employee_list
-    [
-      'qazwsxedcrfvtgbyhnujmikolp'
-    ]
+    [] # 用'',表示
   end
 end
