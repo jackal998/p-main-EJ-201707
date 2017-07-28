@@ -10,10 +10,19 @@ class ServicesController < ApplicationController
     
   end
 
+  ### incorrect URL handler
+  def www
+    redirect_to path_without_www, status: 301
+  end
+  def noroutes
+    flash[:notice] = '網址 : ' + request.url + ' 轉址錯誤，請重新輸入！'
+    render 'index'
+  end
+  ###
+
   private
 
   def set_current_user
-
     @user = get_user_if_cookies cookies[:show_me_who_your_are]
     new_cookie = set_new_cookies(:show_me_who_your_are, request.remote_ip)
 
@@ -47,5 +56,9 @@ class ServicesController < ApplicationController
     require 'digest'
     ref = ref.to_s
     Digest::SHA2.hexdigest ref + Time.now.to_s
+  end
+
+  def path_without_www
+    'http://' + Rails.application.config_for(:domain) + ':' + request.port.to_s + request.path
   end
 end

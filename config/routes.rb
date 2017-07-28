@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  root :to => 'services#index'
 
+  devise_for :users
   resources :users
 
-  get '/services/hereyouare', to: 'services#marketing'
+  domain = Rails.application.config_for(:domain)
 
-  root :to => "services#index"
+  constraints(host: 'www.' + domain) do
+    match '/(*path)', to: 'services#www', via: [:get, :post]
+  end
+  
+  # no routes handler
+  match '*path', to: 'services#noroutes', via: [:get, :post]
 end
