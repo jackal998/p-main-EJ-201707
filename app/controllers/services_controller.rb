@@ -59,9 +59,10 @@ class ServicesController < ApplicationController
   end
 
   def path_without_www
-    http_or_https! + Rails.application.config_for(:domain) + ':' + request.port.to_s + request.path
+    domain = dev? ? 'http://localhost:3000' : 'https://' + Rails.application.config_for(:domain)
+    domain + request.path
   end
-  def http_or_https!
-    ENV["RAILS_ENV"] == 'development' ? 'http://' : 'https://'
+  def dev?
+    ENV["RAILS_ENV"] == 'development'
   end
 end
