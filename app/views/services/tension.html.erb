@@ -1,6 +1,6 @@
-<div id="panel" >
+<div id="panel" class="btn btn-default">
   <div id="exit" class="functional-icon">
-    <%= link_to image_tag('/exit.jpg', :style => "height:100%"), :back%>
+    <%= link_to image_tag('/exit.png', :style => "height:100%"), :back%>
   </div>
   <div id="reset" class="glyphicon glyphicon-repeat functional-icon">
   </div>
@@ -15,7 +15,23 @@
     <%= image_tag('/milkhouse_logo.jpeg') %>
   </div>
 </div>
+
 <script>
+  $(document).ready(function() {
+    $("#panel").draggable({
+      stop: function(event, ui) {
+        // save panel postion to user
+        console.log(ui.position.top); 
+        console.log(ui.position.left); 
+        // or
+        console.log($("#panel").position().top); 
+        console.log($("#panel").position().left);
+
+        console.log($("#panel").offset()); 
+      }
+    });
+  });
+
   window.addEventListener('load', function () {
     var screen = document.getElementById("screen");
     var src = document.getElementById("images").getElementsByTagName("img"),
@@ -50,6 +66,5 @@
       div(screen);
     }
 
-    window.ondragstart = function() { return false; } 
   }, false);
 </script>
