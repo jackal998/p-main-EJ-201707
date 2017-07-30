@@ -1,12 +1,24 @@
-<div id="screen"></div>
-<div id="images">
-  <%= image_tag('/placeholder1.jpg') %>
-  <%= image_tag('/placeholder2.jpg') %>
-  <%= image_tag('/placeholder3.jpg') %>
-  <%= image_tag('/placeholder4.jpg') %>
+
+<div id="panel" >
+  <div id="exit" class="functional-icon">
+    <%= link_to image_tag('/exit.jpg', :style => "height:100%"), :back%>
+  </div>
+  <div id="reset" class="glyphicon glyphicon-repeat functional-icon">
+  </div>
+</div>
+
+<div class="col-lg-12">
+  <div id="screen"></div>
+  <div id="images" style="display:none;">
+    <%= image_tag('/find_milkhouse.jpg') %>
+    <%= image_tag('/find_milkhouse.jpg') %>
+    <%= image_tag('/find_milkhouse.jpg') %>
+    <%= image_tag('/milkhouse_logo.jpeg') %>
+  </div>
 </div>
 <script>
   window.addEventListener('load', function () {
+    var screen = document.getElementById("screen");
     var src = document.getElementById("images").getElementsByTagName("img"),
     img = function img (el,x,y) {
       var d = document.createElement("div");
@@ -29,7 +41,16 @@
       img(el,0,1);
       img(el,1,1);
     };
-    div(document.getElementById("screen"));
+    div(screen);
+
+    var resetIcon = document.getElementById("reset")
+    resetIcon.onmousedown = function () {
+      while (screen.hasChildNodes()){
+        screen.removeChild(screen.lastChild);
+      };
+      div(screen);
+    }
+
     window.ondragstart = function() { return false; } 
   }, false);
 </script>

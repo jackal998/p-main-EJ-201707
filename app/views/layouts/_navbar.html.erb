@@ -6,17 +6,19 @@
         <span class="sr-only">Toggle navigation</span> 
         <i class="fa fa-bars"></i>
       </button>
-
       <h3 class="logo">
         Platform J
       </h3>
-
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="hidden">
           <a href="#page-top"></a>
+        </li>
+        <li>
+          <!-- simple way avoiding jq effect -->
+          <%= link_to 'tension?', '/tension', method: 'get' %>
         </li>
         <li>
           <a class="page-scroll" href="#services">工具們</a>

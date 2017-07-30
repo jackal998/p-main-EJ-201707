@@ -6,7 +6,7 @@ class ServicesController < ApplicationController
 
   end
 
-  def marketing
+  def tension
     
   end
 
