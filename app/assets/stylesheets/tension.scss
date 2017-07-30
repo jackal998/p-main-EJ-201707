@@ -51,3 +51,9 @@
     top: 5vw;
   }
 }
+@media (orientation: portrait) {
+  #screen {
+    height:60vw;
+    width:69vw;
+  } 
+}
