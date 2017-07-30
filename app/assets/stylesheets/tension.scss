@@ -1,8 +1,8 @@
 #screen {
   position:relative;
   margin: 0 auto;
-  width:115vh;
   height:100vh;
+  width:115vh;
 }
 #screen .img{
   position:absolute;
@@ -10,8 +10,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width:auto;
   height:100%;
+  width:auto;
   -webkit-user-select:none;
   -moz-user-select:none;
   -ms-user-select: none;
@@ -19,6 +19,35 @@
 }
 #screen .frame {
   position:absolute;
-  width:50%;
   height:50%;
+  width:50%;
+}
+#panel{
+  position: fixed;
+  z-index: 15;
+  top: 15vh;
+  left: 10vw;
+}
+@media (max-width: 992px) {
+  #panel{
+    left: 4vw;
+  }
+}
+@media (max-width: 768px) {
+  #screen {
+    height:80vh;
+    width:92vh;
+  }
+  #panel{
+    left: 2vw;
+  }
+}
+@media (max-width: 620px) {
+  #screen {
+    height:60vw;
+    width:69vw;
+  }
+  #panel{
+    top: 5vw;
+  }
 }
