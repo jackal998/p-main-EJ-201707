@@ -12,7 +12,11 @@ body {
   position:absolute;
   width:100%;
   height:100%;
-  
+  .a-padding {
+    float: left;
+    height: 1px;
+    width: 0.5em;
+  }
   .logo {
     margin-top: 0.7em;
     font-size: 1.5em;
@@ -26,12 +30,17 @@ body {
   .functional-icon{
     cursor:pointer;
     float: left;
-    margin: 0.2em;
     height: 1.2em;
     width: 1.2em;
     z-index: 16;
     img {
       vertical-align: top;
+    }
+  }
+  @media (orientation: portrait) {
+    .functional-icon{
+      height: 2em;
+      width: 2em;
     }
   }
 }
