@@ -28,27 +28,18 @@
   top: 15vh;
   left: 10vw;
 }
-@media (max-width: 992px) {
-  #panel{
-    left: 4vw;
-  }
-}
+
+
 @media (max-width: 768px) {
   #screen {
     height:80vh;
     width:92vh;
-  }
-  #panel{
-    left: 2vw;
   }
 }
 @media (max-width: 620px) {
   #screen {
     height:60vw;
     width:69vw;
-  }
-  #panel{
-    top: 5vw;
   }
 }
 @media (orientation: portrait) {

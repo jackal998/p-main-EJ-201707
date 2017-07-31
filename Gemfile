@@ -2,9 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.1'
 gem 'sass-rails', '~> 5.0'
+gem "rails-i18n"
+
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem "rails-i18n"
+gem 'touchpunch-rails'
 
 gem 'devise'
 gem 'devise-i18n'
