@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727113535) do
+ActiveRecord::Schema.define(version: 20170731093305) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                       default: "", null: false
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20170727113535) do
     t.string   "nickname"
     t.string   "cookie_show_me_who_your_are"
     t.string   "role"
+    t.float    "panel_top"
+    t.float    "panel_left"
     t.index ["cookie_show_me_who_your_are"], name: "index_users_on_cookie_show_me_who_your_are"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

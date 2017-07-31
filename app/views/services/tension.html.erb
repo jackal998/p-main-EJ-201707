@@ -20,19 +20,26 @@
 
 <script>
   $(document).ready(function() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) !== true) {
+      if (<%= current_user.panel_top.nil? %> !== true) {
+        $("#panel").css({
+          top: '<%= current_user.panel_top %>px',
+          left: '<%= current_user.panel_left %>px'
+        });
+      };
 
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    } else {
       $("#panel").draggable({
         stop: function(event, ui) {
-          // save panel postion to user
-          console.log(ui.position.top); 
-          console.log(ui.position.left); 
-          // or
-          console.log($("#panel").position().top); 
-          console.log($("#panel").position().left);
-
-          console.log($("#panel").offset()); 
+          $.ajax({
+            url: '<%= user_path(current_user) %>',
+            type: 'PUT',
+            data: {
+              panel_top: ui.position.top,
+              panel_left: ui.position.left
+            },success: function(data){
+              console.log('panel position saved success')
+            }
+          })
         }
       });
     }    
