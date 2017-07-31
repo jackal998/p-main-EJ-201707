@@ -59,12 +59,11 @@
     div(screen);
 
     var resetIcon = document.getElementById("reset")
-    resetIcon.onmousedown = function () {
+    resetIcon.addEventListener("click",function () {
       while (screen.hasChildNodes()){
         screen.removeChild(screen.lastChild);
       };
       div(screen);
-    }
-
+    })
   }, false);
 </script>
