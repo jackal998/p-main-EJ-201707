@@ -2,7 +2,9 @@
   <div id="exit" class="functional-icon">
     <%= link_to image_tag('/exit.png', :style => "height:100%"), :back%>
   </div>
-  <div id="reset" class="glyphicon glyphicon-repeat functional-icon">
+  <div class="a-padding"></div>
+  <div id="reset" class="functional-icon">
+    <%= image_tag('/restart.png', :style => "height:100%") %>
   </div>
 </div>
 
@@ -18,18 +20,22 @@
 
 <script>
   $(document).ready(function() {
-    $("#panel").draggable({
-      stop: function(event, ui) {
-        // save panel postion to user
-        console.log(ui.position.top); 
-        console.log(ui.position.left); 
-        // or
-        console.log($("#panel").position().top); 
-        console.log($("#panel").position().left);
 
-        console.log($("#panel").offset()); 
-      }
-    });
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    } else {
+      $("#panel").draggable({
+        stop: function(event, ui) {
+          // save panel postion to user
+          console.log(ui.position.top); 
+          console.log(ui.position.left); 
+          // or
+          console.log($("#panel").position().top); 
+          console.log($("#panel").position().left);
+
+          console.log($("#panel").offset()); 
+        }
+      });
+    }    
   });
 
   window.addEventListener('load', function () {
