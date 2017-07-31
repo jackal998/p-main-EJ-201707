@@ -6,7 +6,6 @@ gem "rails-i18n"
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'touchpunch-rails'
 
 gem 'devise'
 gem 'devise-i18n'
