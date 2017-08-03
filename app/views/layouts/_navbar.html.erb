@@ -1,3 +1,8 @@
+<style>
+  a{color: #000;}
+  a:hover{text-decoration: none;}
+  a:focus{text-decoration: none;}
+</style>
 <div id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
   <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -7,7 +12,7 @@
         <i class="fa fa-bars"></i>
       </button>
       <h3 class="logo">
-        Platform J
+        <a href="#">Platform J</a>
       </h3>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,16 +23,24 @@
         </li>
         <li>
           <!-- simple way avoiding jq effect -->
-          <%= link_to 'tension?', '/tension', method: 'get' %>
+          <%= link_to t('nav.tension?'), '/tension', method: 'get' %>
+        </li>
+        <!-- slideshow -->
+        <!-- services -->
+        <!-- xx supportme -->
+        <!-- whoami -->
+        <!-- contectus -->
+        <li>
+          <a class="page-scroll" href="slideshow"><%= t('nav.slideshow') %></a>
         </li>
         <li>
-          <a class="page-scroll" href="#services">工具們</a>
+          <a class="page-scroll" href="services"><%= t('nav.services') %></a>
         </li>
         <li>
-          <a class="page-scroll" href="#about">關於網站</a>
+          <a class="page-scroll" href="whoami"><%= t('nav.who am i') %></a>
         </li>
         <li>
-          <a class="page-scroll" href="#team">關於開發</a>
+          <a class="page-scroll" href="contactme"><%= t('nav.contactme') %></a>
         </li>
         <li>
           <a href="#" class="page-scroll nickname" data-toggle="modal" data-target="#myModal">
@@ -70,39 +83,3 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  // Agency Theme JavaScript
-
-  (function($) {
-    "use strict"; // Start of use strict
-
-    // jQuery for page scrolling feature - requires jQuery Easing plugin
-    $('a.page-scroll').bind('click', function(event) {
-      var $anchor = $(this);
-      $('html, body').stop().animate({
-        scrollTop: ($($anchor.attr('href')).offset().top - 50)
-      }, 500, 'easeInOutExpo');
-      event.preventDefault();
-    });
-
-    // Highlight the top nav as scrolling occurs
-    $('body').scrollspy({
-      target: '.navbar-fixed-top',
-      offset: 51
-    });
-
-    // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function(){ 
-      $('.navbar-toggle:visible').click();
-    });
-
-    // Offset for Main Navigation
-    $('#mainNav').affix({
-      offset: {
-        top: 100
-      }
-    })
-
-  })(jQuery); // End of use strict  
-</script>

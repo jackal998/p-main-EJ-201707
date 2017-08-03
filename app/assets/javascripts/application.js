@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery-ui/widgets/draggable
 //= require jquery_ujs
+//= require jquery.easing
 //= require bootstrap-sprockets
 //= require_tree .

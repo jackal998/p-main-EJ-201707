@@ -10,6 +10,10 @@ class ServicesController < ApplicationController
     
   end
 
+  def testview
+    
+  end
+
   ### incorrect URL handler
   def www
     redirect_to path_without_www, status: 301

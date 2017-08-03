@@ -2,5 +2,6 @@
 @import "bootstrap";
 @import "jquery-ui/draggable";
 @import "font-awesome";
-@import "services";
-@import "tension";
+@import "service/services";
+@import "service/testview";
+@import "service/tension";

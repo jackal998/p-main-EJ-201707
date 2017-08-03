@@ -1,0 +1,121 @@
+body {
+  // <-- slideshow
+  .slides {
+    position: relative; 
+    display:none;
+
+    .topleft {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 32px;
+    }
+    .topmiddle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%,0);
+      padding: 32px;
+    }
+    .topright {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 32px;
+    }
+    .slider-tag {
+      padding: 0.8em 1.2em;
+      position: relative;
+      animation: animatebottom 0.4s;
+    }
+  }
+  .slider-ctrl {
+    font-size: 24px;
+    padding: 8px 16px;
+    .fa {cursor:pointer}
+    .indicator {
+      height: 15px;
+      width: 15px;
+      padding: 0;
+      margin-top: 6px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      display: inline-block;
+      text-align: center;
+    }
+    .indicator:hover{
+      background-color: #fff;
+    }
+  }    
+  // slideshow -->
+
+  // <-- services
+  .section-padding {
+    padding: 64px 0;
+  }
+  .section-title{
+    padding: .8em 0;
+    border-bottom: 6px solid #ccc;
+    font-size: 1.6em;
+  }
+  .services-box {
+    padding: 16px;
+    float: left;
+    height: 10em;
+    width: 100%;
+    @media (min-width: 601px) {
+      width: 49.99999%;
+    }
+    @media (min-width: 993px) {
+      width: 24.99999%;
+    }
+  }
+  // services -->
+
+  // <-- profile
+  .shadowbox {
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+  }
+  .shadowbox:hover {
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,0.19);
+  }
+  // profile -->
+
+  // <-- theme set
+  .color-set0 {
+    color: #000;
+    background-color: #fff;
+  }
+  .color-set1 {
+    color: #000;
+    background-color: #f1f1f1;
+  }
+  .color-set2 {
+    color: #000;
+    background-color: #bbb;
+  }
+  .color-set3 {
+    color: #fff;
+    background-color: #616161;
+  }
+  .color-set4 {
+    color: #fff;
+    background-color: #000;
+  }
+  .theme-btn {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+  }
+  .theme-btn:hover {
+    color: #000;
+    background-color: #bbb;
+  }
+  .theme-container {
+    padding: 5px 15px;
+  }
+  // theme set -->
+}

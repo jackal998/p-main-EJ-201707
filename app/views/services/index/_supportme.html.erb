@@ -1,0 +1,12 @@
+<section id="supportme">
+  <div class="text-center section-padding">
+    <h3>Pricing Plans</h3>
+    <p>Choose a pricing plan that fits your needs.</p>
+  </div>
+  <%= render partial: "/services/index/plan_box", 
+    locals: {label_color: 'color-set4', level: 'Basic', unit: 2, warranty: 'end less'} %>
+  <%= render partial: "/services/index/plan_box", 
+    locals: {label_color: 'color-set3',level: 'Pro', unit: 5, warranty: 'end less'} %>
+  <%= render partial: "/services/index/plan_box", 
+    locals: {label_color: 'color-set4',level: 'Premium', unit: 10, warranty: 'end less'} %>
+</section>

@@ -134,3 +134,28 @@ zh_TW:
       not_saved:
         one: "有一個錯誤導致 %{resource} 不能被儲存："
         other: "有 %{count} 個錯誤導致 %{resource} 不能被儲存："
+  index:
+    contactme: "馬上聯絡！"
+    every desire: "所有渴望"
+    profile:
+      intro: "林逸杰，與新創團隊鮮乳坊有些淵源，目前正在研究在社會上的生存之道。"
+      contact: "聯絡我"
+    self workshop: "自己流工作室"
+    services:
+      comingsoon: "即將推出"
+      tools: 
+        title: "小工具"
+        intro: "這裡有許多可以增進生活樂趣的小工具，不過大部分都還沒有完成XD"
+    slides:
+      Arch: "建築"
+      Nature: "自然"
+      Tech: "科技"
+    What's in Here: "這裡有..."
+    who am i: "我是誰？"
+  nav:
+    contactme: "聯絡我"
+    services: "這裡有..."
+    slideshow: "文化之美"
+    team: "團隊"
+    tension?: "壓力大？"
+    who am i: "我是誰？"

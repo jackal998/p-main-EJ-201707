@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users
 
   get '/tension', to: 'services#tension'
+  get '/testview', to: 'services#testview'
   
   root :to => 'services#index'
   # no routes handler
