@@ -19,8 +19,7 @@ class ServicesController < ApplicationController
     redirect_to path_without_www, status: 301
   end
   def noroutes
-    flash[:notice] = '網址 : ' + request.url + ' 轉址錯誤，請重新輸入！'
-    render 'index'
+    redirect_to root_path
   end
   ###
 
@@ -67,6 +66,6 @@ class ServicesController < ApplicationController
     domain + request.path
   end
   def dev?
-    ENV["RAILS_ENV"] == 'development'
+    Rails.env == 'development'
   end
 end
