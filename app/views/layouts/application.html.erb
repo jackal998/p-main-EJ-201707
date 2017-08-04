@@ -7,7 +7,6 @@
     <%= csrf_meta_tags %>
     
     <link href="https://fonts.googleapis.com/css?family=Cinzel|Great+Vibes|Lato" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -15,14 +14,6 @@
 
   <body>
     <div class="container">
-      <% if notice %>
-        <div class="alert alert-success alert-dismissible " role="alert">
-          <button type="button" class="close" data-dismiss="alert">
-            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-          </button>
-          <%= notice %>
-        </div>
-      <% end %>
       <%= yield %>
     </div>
   </body>

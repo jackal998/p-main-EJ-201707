@@ -3,7 +3,6 @@ body {
   .slides {
     position: relative; 
     display:none;
-
     .topleft {
       position: absolute;
       top: 0;
@@ -102,8 +101,18 @@ body {
     color: #fff;
     background-color: #000;
   }
+  .theme_inputbox {
+    border: 1px solid #ccc; 
+    padding: 8px; 
+    display: block; 
+    width:100%;
+  }
+  .theme_inputbox:hover {
+    border: 1px solid #000;
+  }
   .theme-btn {
     display: block;
+    border-width: 0px;
     width: 100%;
     padding: 8px 16px;
     vertical-align: middle;

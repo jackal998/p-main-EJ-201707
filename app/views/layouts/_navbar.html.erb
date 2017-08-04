@@ -25,25 +25,18 @@
           <!-- simple way avoiding jq effect -->
           <%= link_to t('nav.tension?'), '/tension', method: 'get' %>
         </li>
-        <!-- slideshow -->
-        <!-- services -->
         <!-- xx supportme -->
-        <!-- whoami -->
-        <!-- contectus -->
         <li>
-          <a class="page-scroll" href="slideshow"><%= t('nav.slideshow') %></a>
+          <a class="page-scroll" href="#slideshow"><%= t('nav.slideshow') %></a>
         </li>
         <li>
-          <a class="page-scroll" href="services"><%= t('nav.services') %></a>
+          <a class="page-scroll" href="#services"><%= t('nav.services') %></a>
         </li>
         <li>
-          <a class="page-scroll" href="whoami"><%= t('nav.who am i') %></a>
+          <a class="page-scroll" href="#whoami"><%= t('nav.who am i') %></a>
         </li>
         <li>
-          <a class="page-scroll" href="contactme"><%= t('nav.contactme') %></a>
-        </li>
-        <li>
-          <a href="#" class="page-scroll nickname" data-toggle="modal" data-target="#myModal">
+          <a href="#" class="page-scroll nickname" data-toggle="modal" data-target="#personal_info_modal">
             <%= user_name(current_user) %>
           </a>
         </li>
@@ -58,14 +51,14 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="personal_info_modal" tabindex="-1" role="dialog" aria-labelledby="personal_info">
   <div class="modal-dialog" role="document">
-    <div class="modal-content" style="z-index: 10;">
+    <div class="modal-content" style="z-index: 10; border-radius: 0px">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel">個人資料</h4>
+        <h4 class="modal-title" id="personal_info"><%= t('nav.personal_info') %></h4>
       </div>
       <div class="modal-body">
         <h4><%= user_name(current_user) %></h4>

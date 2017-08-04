@@ -1,27 +1,39 @@
-<section id="contactme">
+<section id="contactme" class="hidden">
   <div class="text-center section-padding">
     <span class="section-title"><%= t('index.contactme') %></span>
   </div>
-
 <!-- 新的資料收集頁面，對我感興趣...!? -->
+  <%# form_for @message, url: messages_path do |f| %>
 
-  <form class="w3-container" action="/action_page.php" target="_blank">
-    <div class="w3-section">
+      <%# f.label :user_nickname, "特徵：" %>
+      <%# f.text_field :user_nickname,:placeholder => "請輸入您的稱呼", :class => "form-control" %>
+    <div class="form-group">
       <label>Name</label>
-      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="Name" required>
+      <input class="theme_inputbox" type="text" name="Name" required>
+       <!-- :hover {border: #000} -->
     </div>
-    <div class="w3-section">
+    <div class="form-group">
       <label>Email</label>
-      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="Email" required>
+      <input class="theme_inputbox" type="text" name="Email" required>
     </div>
-    <div class="w3-section">
+    <div class="form-group">
       <label>Subject</label>
-      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" name="Subject" required>
+      <input class="theme_inputbox" name="Subject" required>
     </div>
-    <div class="w3-section">
+    <div class="form-group">
       <label>Message</label>
-      <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" name="Message" required>
+      <input class="theme_inputbox" name="Message" required>
     </div>
-    <button type="submit" class="w3-button w3-block w3-black">Send</button>
-  </form>
+
+    <div class="pull-right" style="width: 10vw;">
+      <button class="theme-btn color-set1 trigger-hidden">Hide</button>
+      <%# f.submit "確認" %>
+    </div>
+
+    <div style="width: 30vw; margin: 0 auto;">
+      <button type="submit" class="theme-btn color-set4">Send</button>
+      <%# f.submit "確認" %>
+    </div>
+
+  <%# end %>
 </section>
