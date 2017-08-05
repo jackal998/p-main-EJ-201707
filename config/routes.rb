@@ -5,9 +5,11 @@ Rails.application.routes.draw do
     match '/(*path)', to: 'services#www', via: [:get, :post]
   end
 
-  devise_for :users
-  resources :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
 
+  put '/user/:id', to: 'users#update'
   get '/tension', to: 'services#tension'
   
   root :to => 'services#index'
