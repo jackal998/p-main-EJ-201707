@@ -145,7 +145,7 @@ zh_TW:
       comingsoon: "即將推出"
       tools: 
         title: "小工具"
-        intro: "這裡有許多可以增進生活樂趣的小工具，不過大部分都還沒有完成XD"
+        intro: "原則上會有許多可以增進生活樂趣的小工具，不過要不是還沒開始動工，就是還沒想清楚，反正幾乎都還沒有完成XD"
     slides:
       '1': "走入"
       '2': "自由"
@@ -153,10 +153,19 @@ zh_TW:
     What's in Here: "這裡有..."
     who am i: "我是誰？"
   nav:
+    cancel: "取消"
     contactme: "聯絡我"
-    personal_info: "個人資料"
     services: "工具"
     slideshow: "美學"
     team: "團隊"
     tension?: "壓力大？"
     who am i: "我是誰？"
+  user:
+    attr:
+      email: "信箱"
+      sign_in_count: "上站次數"
+    edit: "修改"
+    new: "註冊"
+    nickname:
+      new: "新增"
+    notuser: "您還沒有登入喔！要現在登入嗎？"
