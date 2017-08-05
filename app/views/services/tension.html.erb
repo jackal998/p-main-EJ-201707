@@ -31,7 +31,7 @@
       $("#panel").draggable({
         stop: function(event, ui) {
           $.ajax({
-            url: '<%= user_path(current_user) %>',
+            url: '/user/<%= current_user.id %>',
             type: 'PUT',
             data: {
               panel_top: ui.position.top,
