@@ -170,6 +170,7 @@ zh_TW:
       sign_in_count: "上站次數"
     edit: "修改"
     login: "登入"
+    new: "註冊"
     nickname:
       new: "新增"
     notuser: "您還沒有登入喔！要現在登入嗎？"
