@@ -51,28 +51,4 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="personal_info_modal" tabindex="-1" role="dialog" aria-labelledby="personal_info">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content" style="z-index: 10; border-radius: 0px">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" id="personal_info"><%= t('nav.personal_info') %></h4>
-      </div>
-      <div class="modal-body">
-        <h4><%= user_name(current_user) %></h4>
-        <p> <%= "取個響亮的暱稱吧！" unless current_user.nickname.present? %> </p>
-        <p> 信箱: <%= current_user.email %> </p>
-        <p> 登入次數: <%= current_user.sign_in_count %> </p>
-        <p> 登入時間: <%= current_user.current_sign_in_at %> </p>
-        <p> 上次登入: <%= current_user.last_sign_in_at %> </p>
-        <%= link_to '修改個人資料', edit_user_registration_path  %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">按鈕一號</button>
-        <button type="button" class="btn btn-primary">按鈕二號</button>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render partial: "/layouts/navbar/personal_info_modal" %>

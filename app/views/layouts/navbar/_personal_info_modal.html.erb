@@ -1,0 +1,31 @@
+<div class="modal fade" id="personal_info_modal" tabindex="-1" role="dialog" aria-labelledby="personal_info">
+  <div class="modal-dialog" role="document" style="margin-top: 20vh;">
+    <div class="modal-content" style="z-index: 10; border-radius: 0px;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="personal_info"><%= user_name(current_user) %></h4>
+      </div>
+      <div class="modal-body">
+        <% if current_user.is_guest? %>
+          <p> <%= t('user.notuser') %> </p>
+        <% else %>
+          <p> <%= t('user.nickname.new') unless current_user.nickname.present? %> </p>
+          <p> <%= t('user.attr.email') + ':' + current_user.email %> </p>
+          <p> <%= t('user.attr.sign_in_count') + ':' + current_user.sign_in_count %> </p>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn color-set1" style="border-radius: 0px;" data-dismiss="modal">
+          <%= t('nav.cancel') %>
+        </button>
+        <% if current_user.is_guest? %>
+          <%= link_to t('user.new'), new_user_registration_path, class: "btn color-set2", style: "border-radius: 0px;" %>
+        <% else %>
+          <%= link_to t('user.edit'), edit_user_registration_path, class: "btn color-set2", style: "border-radius: 0px;"  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
