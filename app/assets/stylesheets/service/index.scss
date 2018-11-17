@@ -1,8 +1,11 @@
 body {
   // <-- slideshow
   .slides {
-    position: relative; 
+    position: relative;
     display:none;
+    img {
+      height: 35em;
+    }
     .topleft {
       position: absolute;
       top: 0;
@@ -100,6 +103,10 @@ body {
   .color-set4 {
     color: #fff;
     background-color: #000;
+  }
+  .color-set-FB {
+    color: #fff;
+    background-color: #4267BB;
   }
   .theme_inputbox {
     border: 1px solid #ccc; 

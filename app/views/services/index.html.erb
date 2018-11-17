@@ -1,11 +1,10 @@
 <style>
   h1,h2,h3,h4 {font-family:"Lato", sans-serif}
-  footer {position: absolute; left: 0; padding: 32px 0; margin-top: 50px; width: 100vw;}
   .fa {padding: 0 5px;}
   .fa:hover {opacity: .6;}
 </style>
 
-<%= render partial: "/layouts/navbar" %>
+<%= render partial: "/layouts/navbar"%>
 <!-- Content -->
 <div class="theme-container" style="margin-top: 50px">
 
@@ -34,17 +33,7 @@
   <!-- googlemap of me -->
 
 <!-- Footer -->
-
-<footer class="color-set1 text-center">
-  <div>
-    <i class="fa fa-facebook"></i>
-    <i class="fa fa-linkedin"></i>
-    <i class="fa fa-github"></i>
-    <i class="fa fa-google-plus"></i>
-  </div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp">w3c school</a></p>
-</footer>
-
+<%= render partial: "/layouts/footer" %>
 
 <script>
   // Slideshow
@@ -69,6 +58,9 @@
     x[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " color-set0";
   }
+
+
+// moveto_nav_or_info_model
 
   // Agency Theme JavaScript
   $(document).ready(function() {

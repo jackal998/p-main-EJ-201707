@@ -1,7 +1,9 @@
 <style>
-  a{color: #000;}
-  a:hover{text-decoration: none;}
-  a:focus{text-decoration: none;}
+
+/* fix css */
+
+  li > a{color: #000;}
+  a a:hover a:focus{text-decoration: none;}
 </style>
 <div id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
   <div class="container">
@@ -40,6 +42,7 @@
             <%= user_name(current_user) %>
           </a>
         </li>
+
         <% unless current_user.is_guest? %>
           <li>
             <%= link_to '登出', destroy_user_session_path, method: 'DELETE'  %>

@@ -97,6 +97,7 @@ zh_TW:
         we_need_your_current_password_to_confirm_your_changes: "輸入目前的密碼以確認變更"
       new:
         sign_up: "註冊"
+        sign_in: "登入"
       signed_up: "註冊成功，歡迎！"
       signed_up_but_inactive: "您已註冊成功。然而因為您的帳號尚未啓動，暫時無法登入，抱歉！"
       signed_up_but_locked: "您已註冊成功。 然而因為您的帳號已被鎖定，暫時無法登入，抱歉！"
@@ -138,7 +139,10 @@ zh_TW:
     contactme: "馬上聯絡！"
     every desire: "所有渴望"
     profile:
-      intro: "林逸杰，與新創團隊鮮乳坊有些淵源，目前正在研究在社會上的生存之道。"
+      intro: "林逸杰，與新創團隊鮮乳坊有些淵源，目前在
+        南亞科擔任製程工程師，興趣是讀點閒書、
+        寫寫code，目前的生活重心是研究在社會上的
+        生存之道。"
       contact: "聯絡我"
     self workshop: "自己流工作室"
     services:
@@ -165,7 +169,7 @@ zh_TW:
       email: "信箱"
       sign_in_count: "上站次數"
     edit: "修改"
-    new: "註冊"
+    login: "登入"
     nickname:
       new: "新增"
     notuser: "您還沒有登入喔！要現在登入嗎？"

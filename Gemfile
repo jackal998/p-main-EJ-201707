@@ -12,6 +12,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'kaminari'
 
+gem 'omniauth-facebook'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem "mysql2"

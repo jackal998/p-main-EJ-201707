@@ -26,17 +26,20 @@ class ServicesController < ApplicationController
   private
 
   def set_current_user
-    @user = get_user_if_cookies cookies[:show_me_who_your_are]
-    new_cookie = set_new_cookies(:show_me_who_your_are, request.remote_ip)
+
+    return current_user if current_user
+
+    @user = get_user_if_cookies(cookies[:show_me_who_u_r])
+    new_cookie = set_new_cookies(:show_me_who_u_r, request.remote_ip)
 
     if @user
-      @user.update_attribute(:cookie_show_me_who_your_are, new_cookie)
+      @user.update_attribute(:show_me_who_u_r, new_cookie)
     else
       @user = User.new(
         :nickname => "guest", 
         :email => "guest_#{Time.now.to_i}#{rand(99)}@guest.tw",  # .tw 可以加入國籍辨別
         :role => "guest",
-        :cookie_show_me_who_your_are => new_cookie
+        :show_me_who_u_r => new_cookie
       )
       @user.save(:validate => false)
     end
@@ -44,7 +47,7 @@ class ServicesController < ApplicationController
   end
 
   def get_user_if_cookies(cookie)
-    User.find_by_cookie_show_me_who_your_are(cookie) if cookie
+    User.find_by_show_me_who_u_r(cookie) if cookie
   end
 
   def set_new_cookies(cookie, data)
