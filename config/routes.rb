@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   put '/user/:id', to: 'users#update'
   get '/tension', to: 'services#tension'
   
+  resource :stock
+
   root :to => 'services#index'
   # no routes handler
   match '*path', to: 'services#noroutes', via: [:get, :post]
