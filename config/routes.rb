@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   put '/user/:id', to: 'users#update'
   get '/tension', to: 'services#tension'
-  get '/aiueo', to: 'aiueo#index'
   
   root :to => 'services#index'
   # no routes handler
