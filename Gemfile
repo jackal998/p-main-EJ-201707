@@ -14,6 +14,12 @@ gem 'kaminari'
 
 gem 'omniauth-facebook'
 
+# https://chartkick.com/
+# https://github.com/ankane/chartkick
+# https://trendapi.org/playground
+
+# https://github.com/ankane/blazer/
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem "mysql2"
