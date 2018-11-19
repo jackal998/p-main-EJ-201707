@@ -20,6 +20,10 @@ gem 'omniauth-facebook'
 
 # https://github.com/ankane/blazer/
 
+# http://tech.guojheng-lin.com/posts/2015/12/03/write-a-ruby-file-regularly-to-catch-crawling-web-page-data/
+
+# https://github.com/tyrauber/stock_quote
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem "mysql2"
@@ -41,7 +45,8 @@ gem 'faker'
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-
+  
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
