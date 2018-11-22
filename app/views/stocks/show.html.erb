@@ -13,14 +13,24 @@
     <h1><b><%= t('index.every desire') %></b></h1>
     <p><%= t('index.self workshop') %></p>
   </div>
-  
-  
+
   <%= line_chart User.all.map { |u|
-    { name: u.nickname, data: u.stocks.all.map { |us| 
-      [us.datatime, us.value ]}
+    { name: u.nickname, 
+      data: u.stocks.all.map { |us| [us.datatime, us.value ]}, 
+      dataset: {borderWidth: 0.1}
     }
   } %>
-  
+  <%= line_chart User.first.stocks.all.map { |us| [us.datatime, us.value ]}, 
+    curve: false, 
+    dataset: {borderWidth: 3}, 
+    prefix: "$", 
+    download: true,
+    label: "price",
+    legend: "bottom", 
+    xtitle: "Time",
+    ytitle: "Price"
+  %>
+
 </div>
   <!-- googlemap of me -->
 
