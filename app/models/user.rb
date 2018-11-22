@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validate :employee
   serialize :fb_raw_data
   
+  has_many :stocks
+
   def self.from_omniauth(auth, cookie)
 
     # user_by_cookies = User.find_by_show_me_who_u_r(cookie)
