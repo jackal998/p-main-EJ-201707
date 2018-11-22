@@ -17,7 +17,7 @@ gem 'omniauth-facebook'
 # https://chartkick.com/
 # https://github.com/ankane/chartkick
 # https://trendapi.org/playground
-
+gem "chartkick"
 # https://github.com/ankane/blazer/
 
 # Use Puma as the app server

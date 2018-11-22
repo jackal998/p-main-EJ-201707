@@ -4,6 +4,7 @@
   .fa:hover {opacity: .6;}
 </style>
 
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 <!-- render partial: "/layouts/navbar" -->
 <!-- Content -->
 <div class="theme-container" style="margin-top: 50px">
@@ -12,7 +13,13 @@
     <h1><b><%= t('index.every desire') %></b></h1>
     <p><%= t('index.self workshop') %></p>
   </div>
-
+  
+  
+  <%= line_chart User.all.map { |u|
+    { name: u.nickname, data: u.stocks.all.map { |us| 
+      [us.datatime, us.value ]}
+    }
+  } %>
   
 </div>
   <!-- googlemap of me -->
