@@ -17,7 +17,7 @@ gem 'omniauth-facebook'
 # https://chartkick.com/
 # https://github.com/ankane/chartkick
 # https://trendapi.org/playground
-
+gem "chartkick"
 # https://github.com/ankane/blazer/
 
 # http://tech.guojheng-lin.com/posts/2015/12/03/write-a-ruby-file-regularly-to-catch-crawling-web-page-data/
