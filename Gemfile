@@ -23,6 +23,7 @@ gem "chartkick"
 # http://tech.guojheng-lin.com/posts/2015/12/03/write-a-ruby-file-regularly-to-catch-crawling-web-page-data/
 
 # https://github.com/tyrauber/stock_quote
+gem "watir"
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
