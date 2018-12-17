@@ -1,43 +1,43 @@
 ---
-- :name: G_ENABLED_IDPS
-  :value: google
-  :path: "/"
-  :domain: ".www.stockdog.com.tw"
-  :expires: 2038-12-11 23:02:00.000000077 +08:00
-  :secure: true
 - :name: _gat
   :value: '1'
   :path: "/"
   :domain: ".stockdog.com.tw"
-  :expires: 2038-12-11 23:02:00.000000077 +08:00
+  :expires: 2038-12-12 13:56:35.999999985 +00:00
   :secure: true
-- :name: fbsr_268329956608070
-  :value: 8p_HMHnQqng3ReEzWlJTNTgCG-uQBsxF0ubd-MY5PdU.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImNvZGUiOiJBUUEwcWJFWkx4NWc3bUFOd2cwTXY1UHhWdDl3OE9kQVlFX2JFdTFFVHpPNWw5OFFzellFMFhkN3dKTDAxbnZTSWRzSERkS2NZQWRDLWt0MXR2RG1fWmdQMTBUUThhYmlQZUFWXy0wWkgzRVFSN3NETDEtMUNoZnJGSlkzazBMTU41dHg2QlVPR1p5T3ltOUx5ZlkxeEJqb05XRmwwS2c2US1MVjFDaW9NczlIYV9Qb0dORk5hOHlURFRIUE8xdzBGcFJ1aG95U3J5RDU1MVNZV1A0dDVuUkhNWmUwTHowNkNaR3d3OXY5TDctUXFLWDZmak1EWDk3bXU1OU5LOGE2dDNUSFl3d0RGbDFiVmxmNmNHVEEtdUtyck9fNDBzLTFmdlFhZHN2bE1fbWxrUC0xYUZIS3RieEJ3UHZZRkdEWmhOUGdDcnY4a1BkSUxzdVRkd3ZkQkl1UCIsImlzc3VlZF9hdCI6MTU0NDk3MjMxNCwidXNlcl9pZCI6IjI0MzU4NzYzNzY0MjkwNTQifQ
+- :name: G_ENABLED_IDPS
+  :value: google
   :path: "/"
-  :domain: ".stockdog.com.tw"
-  :expires: 2038-12-11 23:02:00.000000077 +08:00
+  :domain: ".www.stockdog.com.tw"
+  :expires: 2038-12-12 13:56:35.999999985 +00:00
   :secure: true
 - :name: fbm_268329956608070
   :value: base_domain=.stockdog.com.tw
   :path: "/"
   :domain: ".stockdog.com.tw"
-  :expires: 2038-12-11 23:02:00.000000077 +08:00
+  :expires: 2038-12-12 13:56:35.999999985 +00:00
+  :secure: true
+- :name: fbsr_268329956608070
+  :value: 8p_HMHnQqng3ReEzWlJTNTgCG-uQBsxF0ubd-MY5PdU.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImNvZGUiOiJBUUEwcWJFWkx4NWc3bUFOd2cwTXY1UHhWdDl3OE9kQVlFX2JFdTFFVHpPNWw5OFFzellFMFhkN3dKTDAxbnZTSWRzSERkS2NZQWRDLWt0MXR2RG1fWmdQMTBUUThhYmlQZUFWXy0wWkgzRVFSN3NETDEtMUNoZnJGSlkzazBMTU41dHg2QlVPR1p5T3ltOUx5ZlkxeEJqb05XRmwwS2c2US1MVjFDaW9NczlIYV9Qb0dORk5hOHlURFRIUE8xdzBGcFJ1aG95U3J5RDU1MVNZV1A0dDVuUkhNWmUwTHowNkNaR3d3OXY5TDctUXFLWDZmak1EWDk3bXU1OU5LOGE2dDNUSFl3d0RGbDFiVmxmNmNHVEEtdUtyck9fNDBzLTFmdlFhZHN2bE1fbWxrUC0xYUZIS3RieEJ3UHZZRkdEWmhOUGdDcnY4a1BkSUxzdVRkd3ZkQkl1UCIsImlzc3VlZF9hdCI6MTU0NDk3MjMxNCwidXNlcl9pZCI6IjI0MzU4NzYzNzY0MjkwNTQifQ
+  :path: "/"
+  :domain: ".stockdog.com.tw"
+  :expires: 2038-12-12 13:56:35.999999985 +00:00
   :secure: true
 - :name: STSSESSID
   :value: hvglo6hqgsr4g2k90qlg13uvgs
   :path: "/"
   :domain: ".www.stockdog.com.tw"
-  :expires: 2038-12-11 23:02:00.000000077 +08:00
+  :expires: 2038-12-12 13:56:35.999999985 +00:00
   :secure: true
-- :name: _gid
-  :value: GA1.3.1257616859.1544972263
-  :path: "/"
-  :domain: ".stockdog.com.tw"
-  :expires: 2018-12-17 23:02:00.999999996 +08:00
-  :secure: false
 - :name: _ga
   :value: GA1.3.320758051.1544972263
   :path: "/"
   :domain: ".stockdog.com.tw"
-  :expires: 2020-12-15 23:02:00.999999996 +08:00
+  :expires: 2020-12-16 13:56:35.999999985 +00:00
+  :secure: false
+- :name: _gid
+  :value: GA1.3.1257616859.1544972263
+  :path: "/"
+  :domain: ".stockdog.com.tw"
+  :expires: 2018-12-18 13:56:35.999999985 +00:00
   :secure: false
