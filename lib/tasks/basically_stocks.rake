@@ -34,7 +34,7 @@ namespace :STOCK do
     url_params = url_parser(browser.iframe(:id => 'f').src)
 
     #Start Query with selected condition
-    Date.parse('2013-05-09').upto(Date.parse('2013-05-19')) do |date|
+    Date.parse('2013-05-09').upto(Date.parse('2013-05-13')) do |date|
       url_params[:date] = date.to_s
 
       #Get Data with given condition
@@ -51,9 +51,9 @@ namespace :STOCK do
       parse_html = Nokogiri::HTML.parse(browser.html, nil, 'UTF-8')
 
       #Get Data From HEAD => <script>
-      price_set = parse_html.xpath("/html/head/script[6]").to_s.match(/var\s+data\s+=\s\[\[(.*?)\]\]\s+var/)[1].split('],[')
+      price_set = data_parser(parse_html.xpath("/html/head/script[6]"))
 
-      print(price_set[0])
+      puts price_set[0]
     end
   end
 end

@@ -11,3 +11,7 @@ def url_parser(url)
 
   return temp
 end
+
+def data_parser(raw)
+  raw.to_s.match(/var\s+data\s+=\s\[\[(.*?)\]\]\s+var/)[1].split('],[')
+end
