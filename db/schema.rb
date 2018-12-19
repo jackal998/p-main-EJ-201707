@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181119135210) do
+ActiveRecord::Schema.define(version: 20181219141017) do
 
   create_table "companies", force: :cascade do |t|
     t.integer  "code"
@@ -27,7 +27,9 @@ ActiveRecord::Schema.define(version: 20181119135210) do
     t.datetime "data_datetime"
     t.decimal  "price",         precision: 8, scale: 2
     t.integer  "company_id"
+    t.integer  "volume"
     t.index ["company_id"], name: "index_stocks_on_company_id"
+    t.index ["data_datetime"], name: "index_stocks_on_data_datetime", unique: true
   end
 
   create_table "users", force: :cascade do |t|

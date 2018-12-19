@@ -4,6 +4,10 @@ namespace :STOCK do
   task :get_stock_price => :environment do
     require 'nokogiri'
     require 'watir'
+    require 'activerecord-import'
+    require 'activerecord-import/base'
+    require 'activerecord-import/active_record/adapters/sqlite3_adapter'
+
     require_relative './stocks/stockdog.rb'
 
     stocks_root = "lib/tasks/stocks/"
@@ -33,8 +37,10 @@ namespace :STOCK do
 
     url_params = url_parser(browser.iframe(:id => 'f').src)
 
+    @c = Company.find_by(code: url_params[:sid])
+
     #Start Query with selected condition
-    Date.parse('2013-05-09').upto(Date.parse('2013-05-13')) do |date|
+    Date.parse('2013-05-14').upto(Date.parse('2013-05-15')) do |date|
       url_params[:date] = date.to_s
 
       #Get Data with given condition
@@ -53,7 +59,10 @@ namespace :STOCK do
       #Get Data From HEAD => <script>
       price_set = data_parser(parse_html.xpath("/html/head/script[6]"))
 
-      puts price_set[0]
+      price_set.map! { |ps| data_convert(ps) }
+
+      @c.stocks.import price_set
+      puts @c.stocks.last
     end
   end
 end
