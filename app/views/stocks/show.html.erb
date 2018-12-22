@@ -5,20 +5,28 @@
 </style>
 
 <!-- render partial: "/layouts/navbar" -->
-<!-- Content -->
 <div class="theme-container" style="margin-top: 50px">
 
   <div class="page-header">
     <h1><b><%= t('index.every desire') %></b></h1>
     <p><%= t('index.self workshop') %></p>
   </div>
-  
-  <%= line_chart Company.all.map { |c|
-    { name: c.alias_name, data: c.stocks.all.map { |cs| 
-      [cs.data_datetime, cs.price ]}
-    }
-  } %>
-  
+
+  <% @c_ss.keys.each do |g| %>
+    <div class="clearfix">
+      <div class="text-center section-padding">
+        <p><%= g.strftime('%Y') %></p>
+        <span class="section-title"><%= g.strftime('%B') %></span>
+      </div>
+      <%= line_chart [{name: 'Price', data: @c_ss[g].map { |e| 
+            [e.data_datetime.strftime('%m/%d %H:%M'), e.price]}
+          }],
+          discrete: true, min: nil, points: false, legend: false %>
+      <br>
+      <br>
+      <br>
+    </div>
+  <% end %>
 </div>
 
 <!-- googlemap of me -->

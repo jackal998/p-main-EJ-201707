@@ -97,6 +97,8 @@ GEM
       railties (>= 3.2, < 5.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    groupdate (4.1.1)
+      activesupport (>= 4.2)
     hashie (3.4.6)
     i18n (0.8.6)
     jbuilder (2.7.0)
@@ -289,6 +291,7 @@ DEPENDENCIES
   devise-i18n
   faker
   font-awesome-rails
+  groupdate
   jbuilder (~> 2.5)
   jquery-easing-rails
   jquery-rails
