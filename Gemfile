@@ -2,7 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.1'
 gem 'sass-rails', '~> 5.0'
-gem "rails-i18n"
+gem 'rails-i18n'
+
+# Use PostgreSQL as default DB in all env.
+gem 'pg', '~> 0.21'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -27,7 +30,6 @@ gem "watir"
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
-gem "mysql2"
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
@@ -41,11 +43,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 
-gem 'faker'
-
 group :development, :test do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  gem 'faker'
 
   gem 'activerecord-import'
   

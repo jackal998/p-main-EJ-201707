@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20181219141017) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "companies", force: :cascade do |t|
     t.integer  "code"
     t.string   "alias_name"
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 20181219141017) do
     t.decimal  "price",         precision: 8, scale: 2
     t.integer  "company_id"
     t.integer  "volume"
-    t.index ["company_id"], name: "index_stocks_on_company_id"
-    t.index ["data_datetime"], name: "index_stocks_on_data_datetime", unique: true
+    t.index ["company_id"], name: "index_stocks_on_company_id", using: :btree
+    t.index ["data_datetime"], name: "index_stocks_on_data_datetime", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,10 +57,10 @@ ActiveRecord::Schema.define(version: 20181219141017) do
     t.string   "provider_uid"
     t.string   "provider_user_name"
     t.string   "provider_avatar"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["provider_uid"], name: "index_users_on_provider_uid"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["show_me_who_u_r"], name: "index_users_on_show_me_who_u_r"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["provider_uid"], name: "index_users_on_provider_uid", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["show_me_who_u_r"], name: "index_users_on_show_me_who_u_r", using: :btree
   end
 
 end
