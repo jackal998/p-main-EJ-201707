@@ -1,7 +1,5 @@
 def url_parser(url)
   temp = {}
-  puts 'Parsing url...'
-
   temp = {full: url,
           noparam: url.split('?')[0]}
 
