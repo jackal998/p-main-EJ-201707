@@ -21,74 +21,79 @@ namespace :STOCK do
     #RUBY_PLATFORM => /darwin/ || /win32/
 
     # Query data with selected condition:
-    start_date = Date.parse("2015-01-01")
-    end_date = Date.parse("2015-12-31")
-    @c = Company.find_by(code: 2330)
-    @c_s = @c.stocks
-
-    puts "\n" +
-         "------------------------------------\n" +
-         "Query data with selected condition:\n" +
-         "\n" +
-         "Comp. alias: " + @c.alias_name + "\n" +
-         "Comp. code : " + @c.code.to_s + "\n" +
-         "start_date : " + start_date.strftime("%F") + "\n" +
-         "end_date   : " + end_date.strftime("%F") + "\n" +
-         "------------------------------------"
-    
-    # check of data exist
-    d = start_date.strftime("%F")
-    if @c_s.where("data_datetime >= ?", Time.zone.parse(d)).present?
-      puts "Record with queried date " + d + " of Company: " + @c.code.to_s + " already exist, please check.\n" +
-           "Last record: " + @c_s.last.data_datetime.strftime("%F") + " \n" +
-           " "
-      abort("aborted! stocks date exist.")
-    end
+    start_date = Date.parse("2013-05-09")
+    end_date = Date.parse("2018-12-21")
 
     puts "Use Browser For Ajax & HTTP Request Handling"
     browser = Watir::Browser.new :chrome
               # , headless: true
+                
+    Company.where('id >= 9').each do |comp|
+      # @c = Company.find_by(code: 2317)
+      @c_s = comp.stocks
 
-    #We have to trigger browser to add cookies
-    browser.goto stockdog_root
-    browser.cookies.load stockdog_cookies
+      puts "\n" +
+           "------------------------------------\n" +
+           "Query data with selected condition:\n" +
+           "\n" +
+           "Comp. alias: " + comp.alias_name + "\n" +
+           "Comp. code : " + comp.code.to_s + "\n" +
+           "start_date : " + start_date.strftime("%F") + "\n" +
+           "end_date   : " + end_date.strftime("%F") + "\n" +
+           "------------------------------------"
+      
+      # check of data exist
+      d = start_date.strftime("%F")
+      if @c_s.where("data_datetime >= ?", Time.zone.parse(d)).present?
+        puts "Record with queried date " + d + " of Company: " + comp.code.to_s + " already exist, please check.\n" +
+             "Last record: " + @c_s.last.data_datetime.strftime("%F") + " \n" +
+             " "
+        abort("aborted! stocks date exist.")
+      end
 
-    browser.goto stockdog_chart_type
 
-    #Get Data url from iframe tag and Gtype into url_params{}
-    browser.iframe(:id => "f").wait_until(&:present?)
-    browser.cookies.save stockdog_cookies
+      #We have to trigger browser to add cookies
+      browser.goto stockdog_root
+      browser.cookies.load stockdog_cookies
 
-    #to be tested => FB session time out? and auto renew
+      browser.goto stockdog_chart_type
 
-    url_params = url_parser(browser.iframe(:id => "f").src)
-    url_params[:sid] = @c.code.to_s
+      #Get Data url from iframe tag and Gtype into url_params{}
+      browser.iframe(:id => "f").wait_until(&:present?)
+      browser.cookies.save stockdog_cookies
 
-    #2013-10-03 date_time validation unique fail
-    start_date.upto(end_date) do |qd|
+      #to be tested => FB session time out? and auto renew
 
-      #Get Data with given condition
-      url_params[:date] = qd.strftime("%F")
-      data_url = url_params[:noparam] +
-        "?date=" + url_params[:date] + 
-        "&sid=" + url_params[:sid] + 
-        "&Gtype=" + url_params[:Gtype]
+      url_params = url_parser(browser.iframe(:id => "f").src)
+      url_params[:sid] = comp.code.to_s
 
-      puts "Getting data of " + url_params[:sid] + " on " + url_params[:date]
+      #2013-10-03 date_time validation unique fail
+      start_date.upto(end_date) do |qd|
 
-      browser.goto data_url
-      #no data like holiday ...etc
-      next if browser.div(:id => "bind_message").present?
+        #Get Data with given condition
+        url_params[:date] = qd.strftime("%F")
+        data_url = url_params[:noparam] +
+          "?date=" + url_params[:date] + 
+          "&sid=" + url_params[:sid] + 
+          "&Gtype=" + url_params[:Gtype]
 
-      parse_html = Nokogiri::HTML.parse(browser.html, nil, "UTF-8")
+        print "Getting data of " + url_params[:sid] + " on " + url_params[:date] + "..."
 
-      #Get Data From HEAD => <script>
-      price_set = data_parser(parse_html.xpath("/html/head/script[6]"))
+        browser.goto data_url
+        #no data like holiday ...etc
+        next if browser.div(:id => "bind_message").present?
 
-      price_set.map! { |ps| data_convert(ps) }
+        parse_html = Nokogiri::HTML.parse(browser.html, nil, "UTF-8")
 
-      @c_s.import price_set
+        #Get Data From HEAD => <script>
+        price_set = data_parser(parse_html.xpath("/html/head/script[6]"))
+
+        price_set.map! { |ps| data_convert(ps) }
+
+        @c_s.import price_set
+        puts "Success" if comp.stocks.last.data_datetime.strftime("%F") == qd.strftime("%F")
+      end
+      puts "last data..." + comp.stocks.last.data_datetime.to_s
     end
-    puts "last data..." + @c.stocks.last.data_datetime.to_s
   end
 end
