@@ -1,37 +1,37 @@
 ---
+- :name: G_ENABLED_IDPS
+  :value: google
+  :path: "/"
+  :domain: ".www.stockdog.com.tw"
+  :expires: 2038-12-19 15:41:14.999999895 +00:00
+  :secure: true
 - :name: G_AUTHUSER_H
   :value: '0'
   :path: "/stockdog"
   :domain: ".www.stockdog.com.tw"
-  :expires: 
+  :expires: 2038-12-19 15:41:14.999999895 +00:00
+  :secure: true
+- :name: _gat
+  :value: '1'
+  :path: "/"
+  :domain: ".stockdog.com.tw"
+  :expires: 2038-12-19 15:41:14.999999895 +00:00
   :secure: true
 - :name: STSSESSID
   :value: gtb0kikn9c86iv1mgvp2qncfq0
   :path: "/"
   :domain: ".www.stockdog.com.tw"
-  :expires: 2018-12-30 08:35:50.554729952 +00:00
-  :secure: false
-- :name: _gat
-  :value: '1'
+  :expires: 2038-12-19 15:41:14.999999895 +00:00
+  :secure: true
+- :name: _ga
+  :value: GA1.3.660445992.1545554151
   :path: "/"
   :domain: ".stockdog.com.tw"
-  :expires: 2018-12-23 08:36:50.999999999 +00:00
+  :expires: 2020-12-23 15:41:16.000000129 +00:00
   :secure: false
 - :name: _gid
   :value: GA1.3.520649401.1545554151
   :path: "/"
   :domain: ".stockdog.com.tw"
-  :expires: 2018-12-24 08:36:09.999999844 +00:00
-  :secure: false
-- :name: _ga
-  :value: GA1.3.660445992.1545554151
-  :path: "/"
-  :domain: ".stockdog.com.tw"
-  :expires: 2020-12-22 08:36:09.999999844 +00:00
-  :secure: false
-- :name: G_ENABLED_IDPS
-  :value: google
-  :path: "/"
-  :domain: ".www.stockdog.com.tw"
-  :expires: 9999-12-31 12:00:00.000000000 +00:00
+  :expires: 2018-12-25 15:41:16.000000129 +00:00
   :secure: false

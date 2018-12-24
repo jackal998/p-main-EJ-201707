@@ -19,6 +19,8 @@ def data_convert(raw)
   dt_temp = raw.to_s.match(/\((.*)\)/)[1].split(',').map! { |e| e.to_i }
   price_temp = raw.to_s.match(/\)\,(.*)/)[1].split(',')
   
+  return nil if price_temp[0].match(/\./).nil?
+
   #months from js UTC are from 0-11  
   temp = {data_datetime: DateTime.new(dt_temp[0],dt_temp[1] + 1,dt_temp[2],dt_temp[3],dt_temp[4],dt_temp[5],Rational(8,24)),
           price: price_temp[0],

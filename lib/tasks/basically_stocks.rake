@@ -27,10 +27,13 @@ namespace :STOCK do
     puts "Use Browser For Ajax & HTTP Request Handling"
     browser = Watir::Browser.new :chrome
               # , headless: true
-                
-    Company.where('id >= 9').each do |comp|
+
+    # fail: 46,35,47,48 
+    [46,35,47,48,81,84,86,89,92,96,97,100,102,13,15,18,19,22,24,49,52,54,56,57,58,61,63,65,66,67,70,72,73,75,76,78,79,80,82,83,85,87,88,90,91,93,94,95,98,99,101,10,16].each do |id|
+      comp = Company.find(id)
       # @c = Company.find_by(code: 2317)
-      @c_s = comp.stocks
+      c_s_last = comp.stocks.maximum("data_datetime")
+      start_date = (c_s_last + 1.day).to_date if c_s_last.present?
 
       puts "\n" +
            "------------------------------------\n" +
@@ -41,16 +44,6 @@ namespace :STOCK do
            "start_date : " + start_date.strftime("%F") + "\n" +
            "end_date   : " + end_date.strftime("%F") + "\n" +
            "------------------------------------"
-      
-      # check of data exist
-      d = start_date.strftime("%F")
-      if @c_s.where("data_datetime >= ?", Time.zone.parse(d)).present?
-        puts "Record with queried date " + d + " of Company: " + comp.code.to_s + " already exist, please check.\n" +
-             "Last record: " + @c_s.last.data_datetime.strftime("%F") + " \n" +
-             " "
-        abort("aborted! stocks date exist.")
-      end
-
 
       #We have to trigger browser to add cookies
       browser.goto stockdog_root
@@ -61,8 +54,6 @@ namespace :STOCK do
       #Get Data url from iframe tag and Gtype into url_params{}
       browser.iframe(:id => "f").wait_until(&:present?)
       browser.cookies.save stockdog_cookies
-
-      #to be tested => FB session time out? and auto renew
 
       url_params = url_parser(browser.iframe(:id => "f").src)
       url_params[:sid] = comp.code.to_s
@@ -86,14 +77,14 @@ namespace :STOCK do
         parse_html = Nokogiri::HTML.parse(browser.html, nil, "UTF-8")
 
         #Get Data From HEAD => <script>
-        price_set = data_parser(parse_html.xpath("/html/head/script[6]"))
+        pre_price_set = data_parser(parse_html.xpath("/html/head/script[6]"))
 
-        price_set.map! { |ps| data_convert(ps) }
+        pre_price_set.map! { |ps| data_convert(ps) }
+        price_set = pre_price_set.compact
 
-        @c_s.import price_set
-        puts "Success" if comp.stocks.last.data_datetime.strftime("%F") == qd.strftime("%F")
+        comp.stocks.import price_set
+        puts "Success"
       end
-      puts "last data..." + comp.stocks.last.data_datetime.to_s
     end
   end
 end
