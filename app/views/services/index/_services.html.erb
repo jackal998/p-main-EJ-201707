@@ -4,12 +4,12 @@
       <span class="section-title"><%= t('index.What\'s in Here') %></span>
     </div>
     <div class="services-box color-set1">
-      <h3><%= link_to t('index.services.tools.title'), '#' %> </h3>
-      <p><%= t('index.services.tools.intro') %></p>
+      <h3><%= link_to t('index.services.tool1.title'), '/tension', method: 'get' %></h3>
+      <p><%= t('index.services.tool1.intro') %></p>
     </div>
     <div class="services-box color-set2">
-      <h3><%= t('index.services.comingsoon') %></h3>
-      <p><%= t('index.services.comingsoon') %></p>
+      <h3><%= link_to t('index.services.tool2.title'), stocks_path, method: 'get' %></h3>
+      <p><%= t('index.services.tool2.intro') %></p>
     </div>
     <div class="services-box color-set3">
       <h3><%= t('index.services.comingsoon') %></h3>

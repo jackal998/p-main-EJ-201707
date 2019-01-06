@@ -147,9 +147,12 @@ zh_TW:
     self workshop: "自己流工作室"
     services:
       comingsoon: "即將推出"
-      tools: 
+      tool1: 
         title: "小工具"
         intro: "原則上會有許多可以增進生活樂趣的小工具，不過要不是還沒開始動工，就是還沒想清楚，反正幾乎都還沒有完成XD"
+      tool2: 
+        title: "小股股"
+        intro: "原則上會有可以增進生活樂趣的股東西，不過暫時不會完工..."
     slides:
       '1': "走入"
       '2': "自由"
@@ -164,6 +167,9 @@ zh_TW:
     team: "團隊"
     tension?: "壓力大？"
     who am i: "我是誰？"
+  stocks:
+    title: "小股股"
+    subtitle: "近30日交易價量"
   user:
     attr:
       email: "信箱"

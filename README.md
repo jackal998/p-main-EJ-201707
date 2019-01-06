@@ -16,3 +16,8 @@ planning:
    =>datachecking NG result:
     Datas of 2016-12-15
     Datas of 2017-11-20
+2019/01/06
+  2.(-??)data fitting theory
+   =>Show data with FushionChart
+   =>to-do:
+    display fake fitting result

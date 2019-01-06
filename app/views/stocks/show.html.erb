@@ -8,28 +8,56 @@
 <div class="theme-container" style="margin-top: 50px">
 
   <div class="page-header">
-    <h1><b><%= t('index.every desire') %></b></h1>
-    <p><%= t('index.self workshop') %></p>
+    <h1><b><%= t('stocks.title') %></b></h1>
+    <p><%= t('stocks.subtitle') %></p>
   </div>
-
-  <% @c_ss.keys.each do |g| %>
-    <div class="clearfix">
-      <div class="text-center section-padding">
-        <p><%= g.strftime('%Y') %></p>
-        <span class="section-title"><%= g.strftime('%B') %></span>
-      </div>
-      <%= line_chart [{name: 'Price', data: @c_ss[g].map { |e| 
-            [e.data_datetime.strftime('%m/%d %H:%M'), e.price]}
-          }],
-          discrete: true, min: nil, points: false, legend: false %>
-      <br>
-      <br>
-      <br>
+  <div class="clearfix">
+    <div class="text-center section-padding">
+      <span class="section-title"><%= @c.full_name %></span>
     </div>
-  <% end %>
+    <h4><%= @c.id %></h4>
+    <p><%= @c.category.name %></p>
+    <p><%= @c.description %></p>
+    <div id="chart_container"></div>
+  </div>
 </div>
 
 <!-- googlemap of me -->
 
 <!-- Footer -->
 <!-- render partial: "/layouts/footer" -->
+<script type="text/javascript" src=" http://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script> 
+<script type="text/javascript" src=" http://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script> 
+<script>
+  $(document).ready(function() {
+    let schema =  <%= @c_schema.html_safe %>;
+    let data = <%= @c_data.html_safe %>;
+
+    var dataStore = new FusionCharts.DataStore(data, schema);
+
+    new FusionCharts({
+       type: 'timeseries',
+       renderAt: 'chart_container',
+       width: '100%',
+       height: '500',
+       dataSource: {
+                caption: {
+                  text: 'Prices'
+                },
+                subcaption: {
+                  text: 'last 60 days'
+                },
+                yAxis: [{
+                  plot: [{
+                    value: 'Volume',
+                    type: 'column'
+                  }, {
+                    value: 'Price',
+                    type: 'line'
+                  }]
+                }],
+                data: dataStore.createDataTable(data, schema)
+              }
+    }).render();
+  });
+</script>

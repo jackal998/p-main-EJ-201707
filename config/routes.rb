@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   put '/user/:id', to: 'users#update'
   get '/tension', to: 'services#tension'
   
-  resource :stock
+  resources :stocks, only: [:index, :show]
+  resources :companies, only: [:index, :show]
 
   root :to => 'services#index'
   # no routes handler

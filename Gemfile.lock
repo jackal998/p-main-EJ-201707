@@ -97,6 +97,7 @@ GEM
     ffi (1.9.18-x64-mingw32)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
+    fusioncharts-rails (0.0.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     groupdate (4.1.1)
@@ -294,6 +295,7 @@ DEPENDENCIES
   devise-i18n
   faker
   font-awesome-rails
+  fusioncharts-rails
   groupdate
   jbuilder (~> 2.5)
   jquery-easing-rails
