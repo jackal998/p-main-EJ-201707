@@ -47,6 +47,7 @@ group :development, :test do
   gem 'faker'
 
   gem 'activerecord-import'
+  gem 'calculate-all'
   
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

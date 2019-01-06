@@ -3,35 +3,35 @@
   :value: google
   :path: "/"
   :domain: ".www.stockdog.com.tw"
-  :expires: 2038-12-19 15:41:14.999999895 +00:00
+  :expires: 2039-01-01 12:34:55.000000019 +00:00
   :secure: true
 - :name: G_AUTHUSER_H
   :value: '0'
   :path: "/stockdog"
   :domain: ".www.stockdog.com.tw"
-  :expires: 2038-12-19 15:41:14.999999895 +00:00
+  :expires: 2039-01-01 12:34:55.000000019 +00:00
   :secure: true
 - :name: _gat
   :value: '1'
   :path: "/"
   :domain: ".stockdog.com.tw"
-  :expires: 2038-12-19 15:41:14.999999895 +00:00
+  :expires: 2039-01-01 12:34:55.000000019 +00:00
   :secure: true
 - :name: STSSESSID
   :value: gtb0kikn9c86iv1mgvp2qncfq0
   :path: "/"
   :domain: ".www.stockdog.com.tw"
-  :expires: 2038-12-19 15:41:14.999999895 +00:00
+  :expires: 2039-01-01 12:34:55.000000019 +00:00
   :secure: true
-- :name: _ga
-  :value: GA1.3.660445992.1545554151
-  :path: "/"
-  :domain: ".stockdog.com.tw"
-  :expires: 2020-12-23 15:41:16.000000129 +00:00
-  :secure: false
 - :name: _gid
   :value: GA1.3.520649401.1545554151
   :path: "/"
   :domain: ".stockdog.com.tw"
-  :expires: 2018-12-25 15:41:16.000000129 +00:00
+  :expires: 2019-01-07 12:34:55.000000019 +00:00
+  :secure: false
+- :name: _ga
+  :value: GA1.3.660445992.1545554151
+  :path: "/"
+  :domain: ".stockdog.com.tw"
+  :expires: 2021-01-05 12:34:55.000000019 +00:00
   :secure: false

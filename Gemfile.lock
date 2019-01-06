@@ -53,6 +53,8 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
+    calculate-all (0.2.1)
+      activerecord
     capistrano (3.8.2)
       airbrussh (>= 1.0.0)
       i18n
@@ -283,6 +285,7 @@ DEPENDENCIES
   activerecord-import
   bootstrap-sass (~> 3.3.6)
   byebug
+  calculate-all
   capistrano-passenger
   capistrano-rails
   chartkick

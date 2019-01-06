@@ -8,3 +8,11 @@ planning:
    =>https://www.stockdog.com.tw/stockdog/index.php?m=4&p=11
    =>iframe src="graph...Gtype=xxx"
    =>postman for cookie check
+2018/12/29
+  1.history data parsing
+   =>Top 100 value stocks saved
+   =>Companies Created
+   =>checking file format set
+   =>datachecking NG result:
+    Datas of 2016-12-15
+    Datas of 2017-11-20
